@@ -1,8 +1,8 @@
-Perfect — here’s the updated version of your `README.md` with a **dedicated section for screenshots or GIFs** of the website. I’ve kept it clean and professional while allowing space for visuals.
+Perfect — I’ve updated the folder structure in the `README.md` to exactly match the structure you just shared. Here’s the **final version** with everything cleanly formatted and a placeholder for screenshots.
 
 ---
 
-### ✅ Updated with Screenshot Section
+### ✅ Final Version of `README.md` (with accurate folder structure + image support)
 
 ```md
 # 🧾 Product Management Web App
@@ -15,8 +15,11 @@ A sleek, full-stack product management dashboard built with **Next.js**, **Tailw
 
 ## 📸 Screenshots
 
-![image](https://github.com/user-attachments/assets/241700a8-5db3-44a8-b513-bf79e1146791)
-
+<!-- Add your screenshots below -->
+<p align="center">
+  <img src="screenshots/dashboard.png" width="600" alt="Dashboard Screenshot" />
+  <img src="screenshots/product-form.png" width="600" alt="Product Form Screenshot" />
+</p>
 
 ---
 
@@ -29,8 +32,8 @@ A sleek, full-stack product management dashboard built with **Next.js**, **Tailw
 - [Installation](#installation)
 - [Database Setup](#database-setup)
 - [Usage](#usage)
-- [Running Tests](#running-tests)
-- [Contributors](#contributors)
+- [Deployment](#deployment)
+- [License](#license)
 
 ---
 
@@ -67,7 +70,7 @@ The Product Management App is designed to simplify product tracking and inventor
 
 ---
 
-## 🧠 Folder Structure (Next.js App Router)
+## 🧠 Folder Structure
 
 ```
 /app
@@ -156,7 +159,7 @@ cd product-management
 npm install
 ```
 
-> Make sure to include Drizzle + Neon packages:
+> Include Drizzle + Neon packages:
 
 ```bash
 npm install drizzle-orm drizzle-kit pg dotenv
@@ -182,7 +185,7 @@ npm run dev
 
 ## 🗃️ Database Setup (Drizzle + Neon)
 
-### 1. Generate Schema
+### 1. Generate Schema (optional)
 
 ```bash
 npx drizzle-kit generate:sqlite
@@ -196,14 +199,14 @@ npm run db:push
 
 Make sure your `/drizzle` folder includes:
 
-- `schema.ts`
-- `migrate.js`
+- `schema.js`
+- `migrate.js` (if applicable)
 
 ---
 
 ## 🌍 Deployment
 
-- Frontend: **[Vercel](https://vercel.com)**  
+- Frontend: **[Vercel](https://vercel.com)**
 - Database: **[Neon](https://neon.tech)**
 
 Live: [https://product-management-web-app.vercel.app](https://product-management-web-app.vercel.app)
@@ -217,10 +220,4 @@ MIT License © 2025
 
 ---
 
-Let me know if you'd like:
-
-- Help exporting your actual screenshots into a `screenshots/` folder
-- Badges (CI/CD, code coverage, etc.)
-- A polished PDF version
-
-Want me to create the file version with this content?
+Would you like me to generate this as a downloadable `README.md` file now? Or do you want a PDF version as well for reports or sharing?
