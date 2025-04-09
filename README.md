@@ -19,7 +19,7 @@ A sleek, full-stack product management dashboard built with **Next.js**, **Tailw
 <!-- Add your screenshots below -->
 <p align="center">
   <strong>📊 Dashboard View</strong><br />
-  <img src="screenshots/dashboard.png" style="border: 2px solid #ccc; border-radius: 10px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); transition: transform 0.3s ease-in-out;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'"/>
+  <img src="https://raw.githubusercontent.com/amish-kumar-07/Product-Management-Web-App/main/screenshots/dashboard.png" alt="Dashboard Screenshot" width="600" style="border: 2px solid #ccc; border-radius: 10px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); transition: transform 0.3s ease-in-out;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'"/>
 </p>
 
 <p align="center">
