@@ -1,218 +1,218 @@
-# Product-Management-Web-App
-A modern, clean, and fully-featured product management dashboard built with **Next.js**, **Tailwind CSS**, **Drizzle ORM**, and **Radix UI**. Manage inventory, track productivity, and operate seamlessly.
+Here’s a complete `README.md` tailored to your full-stack **Product Management Web App** built with **Next.js** and a backend using either **NestJS + MongoDB** or **Spring Boot + PostgreSQL**, incorporating everything you've shared:
 
 ---
 
-## 🚀 Features
+# 🛒 Product Management Web App
 
-- Authentication (Sign In / Sign Up / Logout)
-- Dashboard for managing products and categories
-- Responsive design with dark gradient UI
-- Radix UI components for accessible interactivity
-- Drizzle ORM for database interactions
-- PostgreSQL support
+A full-featured, modern product management dashboard built using **Next.js** on the frontend and **NestJS with MongoDB** or **Spring Boot with PostgreSQL** on the backend.
+
+Manage inventory, streamline product operations, and monitor performance in a beautiful and responsive UI.
 
 ---
 
-## 🛠️ Installation
+## 📦 Features
 
-### 1. Clone the Repository
+- ✅ JWT-based authentication (Sign Up / Sign In / Logout)
+- 📦 Product CRUD (Create, Read, Update, Delete)
+- 🔍 Product filtering, sorting, and search
+- 🎨 Responsive, dark-themed UI with Radix + Tailwind CSS
+- 📊 Product Analytics with Charts (via Recharts)
+- 🔒 Protected routes (JWT-secured)
+- ⚙️ Drizzle ORM (if using PostgreSQL)
+- 🚀 Deployed via Vercel
+
+---
+
+## 🧱 Technologies Used
+
+### Frontend
+
+- [Next.js 14+ (App Router)](https://nextjs.org/)
+- TypeScript
+- Tailwind CSS
+- Radix UI
+- React Hook Form + Zod
+- Shadcn/UI + Lucide Icons
+
+### Backend (Choose One)
+
+- **Option 1:** NestJS + MongoDB + Mongoose
+- **Option 2:** Spring Boot + PostgreSQL + JPA
+
+---
+
+## 📁 Suggested Folder Structure
+
+### Frontend (Next.js App Router)
+
+```
+/app
+  /dashboard
+  /products
+  /auth
+  /layout.tsx
+  /page.tsx
+/components
+  /ui
+  /product
+  /auth
+/lib
+  /api.ts          // API methods (axios/fetch)
+  /auth.ts         // Auth utilities
+  /validators
+/drizzle
+  /schema.ts
+  /migrate.js
+/public
+/styles
+```
+
+---
+
+## 🗃️ Backend API Structure
+
+### NestJS Routes (MongoDB)
+
+- `POST /auth/signup`
+- `POST /auth/login`
+- `GET /products`
+- `GET /products/:id`
+- `POST /products`
+- `PUT /products/:id`
+- `DELETE /products/:id`
+
+### Spring Boot Routes (PostgreSQL)
+
+- `POST /api/auth/register`
+- `POST /api/auth/login`
+- `GET /api/products`
+- `POST /api/products`
+- `PUT /api/products/{id}`
+- `DELETE /api/products/{id}`
+
+---
+
+## 🧬 Database Schema Design
+
+### User
+
+```ts
+{
+  id: ObjectId / UUID,
+  email: string,
+  password: string,
+  role: 'admin' | 'user',
+  createdAt: Date
+}
+```
+
+### Product
+
+```ts
+{
+  id: ObjectId / UUID,
+  name: string,
+  description: string,
+  category: string,
+  price: number,
+  rating: number,
+  image: string,
+  createdAt: Date,
+  updatedAt: Date
+}
+```
+
+---
+
+## 🔐 Auth & Security
+
+- JWT stored in **httpOnly cookies** (recommended for Next.js)
+- Protected client routes using middleware (e.g., with `next-auth`, or custom logic)
+- Passwords hashed using `bcryptjs`
+
+---
+
+## 🧾 Forms
+
+Use `react-hook-form` + `zod` schema validation for all forms (sign in, sign up, product CRUD).
+
+---
+
+## 🌐 API Integration
+
+- Fetch API or `axios` under `lib/api.ts`
+- Separate `server` vs `client` components cleanly using App Router conventions
+- All secure calls (create/update/delete) go with JWT in headers
+
+---
+
+## 🚀 Getting Started
+
+### 1. Clone the Repo
 
 ```bash
 git clone https://github.com/your-username/product-management.git
 cd product-management
 ```
-Table of Contents
-Introduction
-Features
-Technologies Used
-Installation
-Usage
-Running Tests
-Contributors
-Introduction
-The Product Management App is a simple web application designed to help users manage products efficiently. It provides functionalities to create, read, update, and delete (CRUD) products. The app is built with Next.js, TypeScript, and integrates with a REST API for backend operations.
 
-Features
-Product Listing: View all products with pagination.
-Product Filtering: Filter products based on criteria such as name, category, and price.
-Product Details: View detailed information about a product.
-Create Product: Add new products using a modal form.
-Update Product: Edit existing product details.
-Delete Product: Remove products from the list.
-Technologies Used
-Frontend:
+### 2. Install Dependencies
 
-Next.js
-TypeScript
-Tailwind CSS
-React
-shadcn components
-Backend:
-
-REST API (https://gendacproficiencytest.azurewebsites.net)
-Testing:
-
-Jest
-Coveralls Code Coverage
-Deployment
-
-Vercel
-Installation
-To set up the project locally, follow these steps:
-
-Clone the repository:
-
-git clone https://github.com/your-username/product-management.git
-cd product-management
-cd myproductmanager
-Install dependencies:
-
+```bash
 npm install
-Run the development server:
+```
 
+### 3. Environment Variables
+
+Create a `.env` file:
+
+```env
+DATABASE_URL=your-db-url
+JWT_SECRET=your-secret-key
+NEXT_PUBLIC_API_URL=http://localhost:8080
+```
+
+### 4. Run the App
+
+```bash
 npm run dev
-The app should now be running on http://localhost:3000.
+```
 
-Usage
-Once the app is running, you can access various features from the web interface:
+### 5. Push Database Schema (Drizzle / Prisma / JPA)
 
-View Products
-Create Product: Click the "Create Product" button to open a modal form and add a new product.
-Edit Product: Click on a product to view its details and update its information.
-Delete Product: Use the delete button on the product details page to remove a product.
-Running Tests
-To run the tests, use the following command:
+```bash
+npm run db:push
+```
 
+---
+
+## 🧪 Running Tests
+
+```bash
 npm run test
 npm run test-coverage
-This will execute all the unit tests using Jest and provide test coverage.
+```
 
-Contributors
-Hlokomani Khondlo
-LinkedIn
+---
 
-About
-The Product Management App is a simple web application designed to help users manage products efficiently. It provides functionalities to create, read, update, and delete (CRUD) products. The app is built with Next.js, TypeScript, and integrates with a REST API for backend operations.
+## 🌍 Deployment
 
-product-management-sepia-seven.vercel.app
-Resources
- Readme
- Activity
-Stars
- 0 stars
-Watchers
- 1 watching
-Forks
- 0 forks
-Report repository
-Releases 1
-v1.0.0
-Latest
-on May 28, 2024
-Deployments
-36
- Preview 11 months ago
- Production 11 months ago
-+ 34 deployments
-Languages
-TypeScript
-96.7%
- 
-CSS
-2.4%
- 
-JavaScript
-0.9%
-Footer
-© 2025 GitHub, Inc.
-Footer navigation
-Terms
-Priv
+- Frontend: **[Vercel](https://vercel.com)**
+- Backend: **[Render](https://render.com)** / **[Railway](https://railway.app)** / **Azure Web Apps**
 
+Live Demo: [https://product-management-web-app.vercel.app](https://product-management-web-app.vercel.app)
 
-# Product Management App
+---
 
-[![CI](https://github.com/hlokomani/product-management/actions/workflows/ci.yaml/badge.svg?branch=main)](https://github.com/hlokomani/product-management/actions/workflows/ci.yaml)
-![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/hlokomani/product-management/ci.yaml)
-![GitHub last commit](https://img.shields.io/github/last-commit/hlokomani/product-management)
-![GitHub forks](https://img.shields.io/github/forks/hlokomani/product-management)
+## 👤 Contributors
 
-[Live Deployment](https://product-management-2myk5v973-hlokomanis-projects.vercel.app/products)
+- [Hlokomani Khondlo](https://www.linkedin.com/in/hlokomani-khondlo)
 
-## Table of Contents
+---
 
-- [Introduction](#introduction)
-- [Features](#features)
-- [Technologies Used](#technologies-used)
-- [Installation](#installation)
-- [Usage](#usage)
-- [Running Tests](#running-tests)
-- [Contributors](#contributors)
+## 📃 License
 
+MIT License © 2025
 
-## Introduction
+---
 
-The Product Management App is a simple web application designed to help users manage products efficiently. It provides functionalities to create, read, update, and delete (CRUD) products. The app is built with Next.js, TypeScript, and integrates with a REST API for backend operations.
-
-## Features
-
-- **Product Listing**: View all products with pagination.
-- **Product Filtering**: Filter products based on criteria such as name, category, and price.
-- **Product Details**: View detailed information about a product.
-- **Create Product**: Add new products using a modal form.
-- **Update Product**: Edit existing product details.
-- **Delete Product**: Remove products from the list.
-
-## Technologies Used
-
-- **Frontend**:
-  - Next.js
-  - TypeScript
-  - Tailwind CSS
-  - React
-  - shadcn components
-
-- **Backend**:
-  - REST API (https://gendacproficiencytest.azurewebsites.net)
-
-- **Testing**:
-  - Jest
-  - Coveralls Code Coverage
-
-- **Deployment**
-  - Vercel
-
-## Installation
-
-To set up the project locally, follow these steps:
-
-1. **Clone the repository**:
-   ```bash
-   git clone https://github.com/your-username/product-management.git
-   cd product-management
-   cd myproductmanager
-   ```
-
-2. **Install dependencies**:
-   ```bash
-   npm install
-   ```
-
-3. **Run the development server**:
-   ```bash
-   npm run dev
-   ```
-
-   The app should now be running on [http://localhost:3000](http://localhost:3000).
-
-## Usage
-
-Once the app is running, you can access various features from the web interface:
-
-- **Browse Products**:Click to see all the product available,
-- **Create Product**: Click the "Create Product" button to open a modal form and add a new product.
-- **Edit Product**: Click on a product to view its details and update its information.
-- **Delete Product**: Use the delete button on the product details page to remove a product.
-
-
+Would you like me to generate a real file version of this README.md for you to download or save it to your project?
