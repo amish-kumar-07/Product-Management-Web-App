@@ -18,7 +18,8 @@ A sleek, full-stack product management dashboard built with **Next.js**, **Tailw
 <!-- Add your screenshots below -->
 <p align="center">
   <strong>📊 Dashboard View</strong><br />
-  <img src="https://github.com/amish-kumar-07/Product-Management-Web-App/blob/main/screenshots/Database.png" alt="Dashboard Screenshot" width="600"/>
+  <img src=![Screenshot 2025-04-09 204759](https://github.com/user-attachments/assets/3cb0cf1c-ad4b-4ded-9a75-03eccef3644f)
+"" alt="Dashboard Screenshot" width="600"/>
 </p>
 
 <p align="center">
