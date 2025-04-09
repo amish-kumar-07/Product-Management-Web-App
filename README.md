@@ -220,6 +220,3 @@ Live: [https://product-management-web-app.vercel.app](https://product-management
 MIT License © 2025
 ```
 
----
-
-Would you like me to generate this as a downloadable `README.md` file now? Or do you want a PDF version as well for reports or sharing?
