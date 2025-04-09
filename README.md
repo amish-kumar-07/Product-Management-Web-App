@@ -1,94 +1,105 @@
-Here’s a complete `README.md` tailored to your full-stack **Product Management Web App** built with **Next.js** and a backend using either **Neon PostgreSQL**, incorporating everything you've shared:
+Perfect — here’s the updated version of your `README.md` with a **dedicated section for screenshots or GIFs** of the website. I’ve kept it clean and professional while allowing space for visuals.
 
 ---
 
-# 🛒 Product Management Web App
+### ✅ Updated with Screenshot Section
 
-A full-featured, modern product management dashboard built using **Next.js** on the frontend and **NestJS with MongoDB** or **Spring Boot with PostgreSQL** on the backend.
+```md
+# 🧾 Product Management Web App
 
-Manage inventory, streamline product operations, and monitor performance in a beautiful and responsive UI.
+A sleek, full-stack product management dashboard built with **Next.js**, **Tailwind CSS**, **Drizzle ORM**, and **Radix UI**. Empower your workflow with product CRUD, authentication, and seamless inventory tracking.
 
----
-
-## 📦 Features
-
-- ✅ JWT-based authentication (Sign Up / Sign In / Logout)
-- 📦 Product CRUD (Create, Read, Update, Delete)
-- 🔍 Product filtering, sorting, and search
-- 🎨 Responsive, dark-themed UI with Radix + Tailwind CSS
-- 📊 Product Analytics with Charts (via Recharts)
-- 🔒 Protected routes (JWT-secured)
-- ⚙️ Drizzle ORM (if using PostgreSQL)
-- 🚀 Deployed via Vercel
+### 🔗 [Live Demo](https://product-management-web-app-l3qr.vercel.app)
 
 ---
 
-## 🧱 Technologies Used
+## 📸 Screenshots
 
-### Frontend
-
-- [Next.js 14+ (App Router)](https://nextjs.org/)
-- TypeScript
-- Tailwind CSS
-- Radix UI
-- React Hook Form + Zod
-- Shadcn/UI + Lucide Icons
-
-### Backend (Choose One)
-
-- **Option 1:** NestJS + MongoDB + Mongoose
-- **Option 2:** Spring Boot + PostgreSQL + JPA
+<!-- Add your screenshots or demo GIFs here -->
+<p align="center">
+  <img src="![image](https://github.com/user-attachments/assets/7b63a499-8f31-4738-8d17-0f7154ff138b)
+" width="600" alt="Dashboard Screenshot" />
+  <img src="screenshots/product-form.png" width="600" alt="Product Form Screenshot" />
+</p>
 
 ---
 
-## 📁 Suggested Folder Structure
+## 📋 Table of Contents
 
-### Frontend (Next.js App Router)
+- [Introduction](#introduction)
+- [Features](#features)
+- [Tech Stack](#tech-stack)
+- [Screenshots](#📸-screenshots)
+- [Installation](#installation)
+- [Database Setup](#database-setup)
+- [Usage](#usage)
+- [Running Tests](#running-tests)
+- [Contributors](#contributors)
+
+---
+
+## 📌 Introduction
+
+The Product Management App is designed to simplify product tracking and inventory operations. With modern UX and responsive UI, it provides full CRUD capabilities backed by a secure backend with JWT authentication.
+
+---
+
+## 🚀 Features
+
+- 🔐 Authentication (Sign Up / Sign In / Logout)
+- 📦 Full CRUD for Products
+- 🧮 Filtering, Sorting, and Search
+- 🌓 Gradient Dark UI (Responsive)
+- ⚙️ Drizzle ORM with Neon PostgreSQL
+- 🧱 Radix UI + Tailwind components
+
+---
+
+## 🛠️ Tech Stack
+
+### 💻 Frontend
+- **Next.js (App Router)**
+- **React + TypeScript**
+- **Tailwind CSS + Tailwind Animate**
+- **shadcn/UI**
+- **Lucide Icons**
+
+### 🧠 Backend
+- **Drizzle ORM**
+- **Neon PostgreSQL**
+- **JWT Auth (Login/Signup/Logout)**
+
+---
+
+## 🧠 Folder Structure (Next.js App Router)
 
 ```
 /app
+  /api
   /dashboard
+    page.jsx
   /products
-  /auth
-  /layout.tsx
-  /page.tsx
+  /signin
+  /signup
+  globals.css
+  layout.jsx
+  layout.tsx
+  page.jsx
 /components
-  /ui
-  /product
-  /auth
-/lib
-  /api.ts          // API methods (axios/fetch)
-  /auth.ts         // Auth utilities
-  /validators
+  (UI components here)
 /drizzle
-  /schema.ts
-  /migrate.js
-/public
-/styles
+  schema.js
+/meta
+  (meta info or SEO config)
+/hooks
+  (Custom React hooks)
+/lib
+  auth.js
+  db.js
+  utils.ts
+.env
+tailwind.config.ts
 ```
-
----
-
-## 🗃️ Backend API Structure
-
-### NestJS Routes (MongoDB)
-
-- `POST /auth/signup`
-- `POST /auth/login`
-- `GET /products`
-- `GET /products/:id`
-- `POST /products`
-- `PUT /products/:id`
-- `DELETE /products/:id`
-
-### Spring Boot Routes (PostgreSQL)
-
-- `POST /api/auth/register`
-- `POST /api/auth/login`
-- `GET /api/products`
-- `POST /api/products`
-- `PUT /api/products/{id}`
-- `DELETE /api/products/{id}`
 
 ---
 
@@ -98,51 +109,39 @@ Manage inventory, streamline product operations, and monitor performance in a be
 
 ```ts
 {
-  id: ObjectId / UUID,
-  email: string,
-  password: string,
-  role: 'admin' | 'user',
-  createdAt: Date
+  id: uuid('id').defaultRandom().primaryKey(),
+  email: text('email').notNull().unique(),
+  password: text('password').notNull(),
+  role: text('role').notNull().default('user'),
+  createdAt: timestamp('created_at').defaultNow(),
+  updatedAt: timestamp('updated_at').defaultNow(),
 }
 ```
 
 ### Product
 
 ```ts
-{
-  id: ObjectId / UUID,
-  name: string,
-  description: string,
-  category: string,
-  price: number,
-  rating: number,
-  image: string,
-  createdAt: Date,
-  updatedAt: Date
-}
+export const products = pgTable('products', {
+  id: uuid('id').defaultRandom().primaryKey(),
+  name: text('name').notNull(),
+  description: text('description').notNull(),
+  category: text('category').notNull(),
+  price: doublePrecision('price').notNull(),
+  rating: doublePrecision('rating').notNull(),
+  image: text('image'),
+  createdAt: timestamp('created_at').defaultNow(),
+  updatedAt: timestamp('updated_at').defaultNow(),
+  userId: uuid('user_id').references(() => users.id),
+});
 ```
 
 ---
 
 ## 🔐 Auth & Security
 
-- JWT stored in **httpOnly cookies** (recommended for Next.js)
-- Protected client routes using middleware (e.g., with `next-auth`, or custom logic)
-- Passwords hashed using `bcryptjs`
-
----
-
-## 🧾 Forms
-
-Use `react-hook-form` + `zod` schema validation for all forms (sign in, sign up, product CRUD).
-
----
-
-## 🌐 API Integration
-
-- Fetch API or `axios` under `lib/api.ts`
-- Separate `server` vs `client` components cleanly using App Router conventions
-- All secure calls (create/update/delete) go with JWT in headers
+- JWT stored in **httpOnly cookies**
+- Protected routes using Next.js middleware
+- Passwords hashed with `bcryptjs`
 
 ---
 
@@ -161,12 +160,18 @@ cd product-management
 npm install
 ```
 
+> Make sure to include Drizzle + Neon packages:
+
+```bash
+npm install drizzle-orm drizzle-kit pg dotenv
+```
+
 ### 3. Environment Variables
 
 Create a `.env` file:
 
 ```env
-DATABASE_URL=your-db-url
+DATABASE_URL=your-neon-db-url
 JWT_SECRET=your-secret-key
 NEXT_PUBLIC_API_URL=http://localhost:8080
 ```
@@ -177,42 +182,49 @@ NEXT_PUBLIC_API_URL=http://localhost:8080
 npm run dev
 ```
 
-### 5. Push Database Schema (Drizzle / Prisma / JPA)
+---
+
+## 🗃️ Database Setup (Drizzle + Neon)
+
+### 1. Generate Schema
+
+```bash
+npx drizzle-kit generate:sqlite
+```
+
+Or run migrations:
 
 ```bash
 npm run db:push
 ```
 
----
+Make sure your `/drizzle` folder includes:
 
-## 🧪 Running Tests
-
-```bash
-npm run test
-npm run test-coverage
-```
+- `schema.ts`
+- `migrate.js`
 
 ---
 
 ## 🌍 Deployment
 
-- Frontend: **[Vercel](https://vercel.com)**
-- Backend: **[Render](https://render.com)** / **[Railway](https://railway.app)** / **Azure Web Apps**
+- Frontend: **[Vercel](https://vercel.com)**  
+- Database: **[Neon](https://neon.tech)**
 
-Live Demo: [https://product-management-web-app.vercel.app](https://product-management-web-app.vercel.app)
-
----
-
-## 👤 Contributors
-
-- [Hlokomani Khondlo](https://www.linkedin.com/in/hlokomani-khondlo)
+Live: [https://product-management-web-app.vercel.app](https://product-management-web-app.vercel.app)
 
 ---
 
 ## 📃 License
 
 MIT License © 2025
+```
 
 ---
 
-Would you like me to generate a real file version of this README.md for you to download or save it to your project?
+Let me know if you'd like:
+
+- Help exporting your actual screenshots into a `screenshots/` folder
+- Badges (CI/CD, code coverage, etc.)
+- A polished PDF version
+
+Want me to create the file version with this content?
