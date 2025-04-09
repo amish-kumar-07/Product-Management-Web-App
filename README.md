@@ -1,4 +1,4 @@
-Here’s a complete `README.md` tailored to your full-stack **Product Management Web App** built with **Next.js** and a backend using either **NestJS + MongoDB** or **Spring Boot + PostgreSQL**, incorporating everything you've shared:
+Here’s a complete `README.md` tailored to your full-stack **Product Management Web App** built with **Next.js** and a backend using either **Neon PostgreSQL**, incorporating everything you've shared:
 
 ---
 
