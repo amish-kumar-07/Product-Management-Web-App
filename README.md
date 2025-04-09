@@ -69,10 +69,10 @@ The Product Management App is designed to simplify product tracking and inventor
 - **JWT Auth (Login/Signup/Logout)**
 
 ---
-
-## 🧠 Folder Structure
-
 ```
+## 🧠 Folder Structure (Next.js App Router)
+
+```bash
 /app
   /api
   /dashboard
@@ -99,6 +99,8 @@ The Product Management App is designed to simplify product tracking and inventor
 .env
 tailwind.config.ts
 ```
+
+---
 
 ---
 
