@@ -37,6 +37,25 @@ A sleek, full-stack product management dashboard built with **Next.js**, **Tailw
 </p>
 
 ---
+Here's a clearer and more professional way to write the bug description:
+
+---
+
+Here's the revised version with proper grammar and clarity:
+
+---
+
+### 🐞 Bug Report
+
+**Issue:**  
+After clicking the "Exit Console" button, the application does not automatically navigate back to the dashboard or refresh. As a result, the user interface gets stuck on the console screen.
+
+**Solution:**  
+Clicking the "Exit Console" button should refresh the page to redirect the user back to the dashboard to prevent the interface from getting stuck.
+
+---
+
+Let me know if you want to include steps to reproduce or environment details too!
 
 ## 📋 Table of Contents
 
