@@ -1,10 +1,3 @@
-Perfect — I’ve updated the folder structure in the `README.md` to exactly match the structure you just shared. Here’s the **final version** with everything cleanly formatted and a placeholder for screenshots.
-
----
-
-### ✅ Final Version of `README.md` (with accurate folder structure + image support)
-
-```md
 # 🧾 Product Management Web App
 
 A sleek, full-stack product management dashboard built with **Next.js**, **Tailwind CSS**, **Drizzle ORM**, and **Radix UI**. Empower your workflow with product CRUD, authentication, and seamless inventory tracking.
