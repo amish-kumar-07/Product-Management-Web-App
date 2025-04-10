@@ -226,7 +226,7 @@ Make sure your `/drizzle` folder includes:
 - Frontend: **[Vercel](https://vercel.com)**
 - Database: **[Neon](https://neon.tech)**
 
-Live: [https://product-management-web-app.vercel.app](https://product-management-web-app.vercel.app)
+Live: [https://product-management-web-app-l3qr.vercel.app/](https://product-management-web-app-l3qr.vercel.app/)
 
 ---
 
