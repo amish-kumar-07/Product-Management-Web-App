@@ -11,7 +11,7 @@ A sleek, full-stack product management dashboard built with **Next.js**, **Tailw
 <!-- Add your screenshots below -->
 <p align="center">
   <strong>📊 Dashboard View</strong><br />
-  ![Screenshot 2025-05-20 105104](https://github.com/user-attachments/assets/537a5091-600d-400c-b2d6-e5807c40518e)
+    <img src="Screenshot 2025-05-20 105104.png" width="600" alt="Product Form Screenshot" style="border: 2px solid #ccc; border-radius: 10px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); transition: transform 0.3s ease-in-out;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'"/>
 </p>
 
 <p align="center">
